@@ -8,7 +8,6 @@ function superCounter(str) {
   var chars = str.length;
   var spaces = str.split(' ').length - 1
 
-
   return {
     words: words,
     chars: chars,
