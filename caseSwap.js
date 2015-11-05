@@ -7,4 +7,4 @@ function swapCase(str) {
 }
 
 // test
-console.log(swapCase('hello HOW are 23423&@*#*$!#    syou?'))
+console.log(swapCase('Life is 10% what happens to you, and 90% of how you REACT to it'))
