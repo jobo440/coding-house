@@ -3,16 +3,15 @@ function superCounter(str) {
   .split(' ')
   .filter(function(x) {
     return !(x === '');
-  })
-  .length;
+  }).length;
   var chars = str.length;
-  var spaces = str.split(' ').length - 1
+  var spaces = str.split(' ').length - 1;
   return {
     words: words,
     chars: chars,
     avgLength: (chars - spaces) / words,
     spaces: spaces
-  }
+  };
 }
 
 // tests
@@ -30,5 +29,5 @@ function superCounter2(str) {
     chars: chars,
     avgLength: (chars - spaces) / words,
     spaces: spaces
-  }
+  };
 }

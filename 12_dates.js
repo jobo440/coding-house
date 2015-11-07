@@ -3,14 +3,14 @@ function age(year, month, day) {
   var timeStamp = date.getTime();
   var currentTimeStamp = Date.now();
   var days = Math.abs(Math.floor((currentTimeStamp - timeStamp) / 86400000));
-
+  return date.getDay()
   function over30Days() {
 
   }
   function over12Months() {
 
   }
-  
+    
 }
 
 // tests
