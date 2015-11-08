@@ -23,5 +23,5 @@ function wordSelector(str) {
 }
 
 // test
-console.log(wordSelector("hellllo whats up?????????        !!!dropthebassss!!!   :)    ##############"));
 console.log(wordSelector("I attribute my success to this: I never gave or took any excuse. –Florence Nightingale"));
+console.log(wordSelector("hellllo whats up?????????        !!!dropthebassss!!!   :)    ##############"));

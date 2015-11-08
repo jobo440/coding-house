@@ -1,16 +1,23 @@
 function age(year, month, day) {
-  var date = new Date(year, month, day);
-  var timeStamp = date.getTime();
+  var givenDate = new Date(year, month - 1, day);
+  var givenTimeStamp = givenDate.getTime();
+  var currentDate = new Date()
   var currentTimeStamp = Date.now();
-  var days = Math.abs(Math.floor((currentTimeStamp - timeStamp) / 86400000));
-  return date.getDay()
-  function over30Days() {
+  var totalDays = Math.abs(Math.floor((currentTimeStamp - givenTimeStamp) / 86400000));
+
+  
+  
+  
+
+  if(totalDays > 365) {
+    var yearDiff = Math.abs(currentDate.getFullYear() - givenDate.getFullYear());
+    var monthDiff = Math.abs(currentDate.getMonth() - givenDate.getMonth()) + 1;
+    return yearDiff + ' years, ' + monthDiff + ' months, ' + 
+  }
+  if(totalDays > 30) {
 
   }
-  function over12Months() {
-
-  }
-    
+  return totalDays + ' days';
 }
 
 // tests
