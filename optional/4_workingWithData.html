@@ -1,0 +1,29 @@
+<!doctype html>
+<head>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+  <div id="info"></div>
+</body>
+<script>
+  var data = $.ajax({
+  type: 'GET',
+  url: 'https://api.github.com/users',
+  success: function(data) {
+    var counter = data.reduce(function(acc, obj) {
+      if(obj.type === 'User') acc.numUsers++;
+      if(obj.type ==='Organization') acc.numOrganizations++;
+      if(obj.site_admin) acc.numAdmins++;
+      if(obj.login.length < 6) acc.numShortHandle++;
+      return acc;
+    },{
+      numUsers: 0,
+      numOrganizations: 0,
+      numAdmins: 0,
+      numShortHandle: 0
+    })
+    document.getElementById("info").innerHTML = JSON.stringify(counter);
+  }
+});
+
+</script>

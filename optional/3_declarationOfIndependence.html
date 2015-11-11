@@ -1,0 +1,52 @@
+<!doctype html>
+<head>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12"><h1 class="text-center">Declaration of Independence</h1></div>
+    </div>
+    <div class="row">
+    <div class="col-md-5">
+      <textarea class="form-control" id="input" rows="3">Testing ^#*&$*#here yay yay yay yaya</textarea>
+    </div>
+    <div class="col-md-2"><button id="calcBtn">Calculate!</button></div>
+    <div class="col-md-5">
+      <div id="output"></div>
+    </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("#calcBtn").click(function(){
+        $("#output").empty();
+        var input = $("#input").val();
+        // filter out words well enough to reduce them
+        var onlyWords = input.split(' ').filter(function(item) { return item.length > 1 }).map(function(group) {
+          return group.split('').filter(function(char) {
+            return char.match(/[a-zA-Z]/);
+          }).join('');
+        });
+        console.log(onlyWords);
+        // add word objects to cache array
+        var cache = onlyWords.reduce(function(cache, word) {
+          for(var i = 0; i < cache.length; i++) {  // not pleased with this for loop but blahasdfasd
+            if(cache[i].word === word) {
+              cache[i].count = cache[i].count + 1;
+              return cache;
+            }
+          }
+          return cache.concat({word: word, count: 1})
+        }, []).sort(function(a, b) { return b.count - a.count; });
+        console.log(cache)
+        // print to DOM
+        for(var i = 0; i < 20; i++) {
+          $("#output").append("<tr><td>" + cache[i].word + "</td><td>" + cache[i].count + "</td></tr>")        
+        }
+      }); 
+    });
+  </script>
+</body>
+
