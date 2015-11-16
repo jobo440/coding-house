@@ -20,6 +20,6 @@ ascii.nextChar = makeNextChar();
 
 var converted = ascii.nextChar().nextChar().nextChar().nextChar().nextChar().nextChar().nextChar().
 nextChar().nextChar().nextChar().nextChar().nextChar().nextChar().nextChar().
-nextChar().nextChar().nextChar().nextChar().nextChar(); 
+nextChar().nextChar().nextChar().nextChar().nextChar().join('');
 
 console.log(converted);
